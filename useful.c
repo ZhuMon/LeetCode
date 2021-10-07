@@ -1,6 +1,7 @@
 #include<stdio.h>
-#include<stdarg.h>
 #include<stdlib.h>
+
+#include<stdarg.h>
 void int_array_init(int *a, const int ct, ...) {
     free(a);
     a = (int*)malloc(sizeof(int)*ct);    
