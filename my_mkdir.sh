@@ -1,3 +1,3 @@
-mkdir $1
-cp Makefile $1/Makefile
-cp .clangformat $1/Makefile
+mkdir -p $1
+cp -f Makefile $1/Makefile
+cp -f .clang-format $1/
