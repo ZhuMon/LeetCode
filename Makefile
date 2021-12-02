@@ -11,7 +11,7 @@ else
     VECHO = @printf
 endif
 
-all: main
+all: clean main
 	
 main: main.o
 	$(VECHO) "  LD\t$@\n"
@@ -20,3 +20,6 @@ main: main.o
 main.o: main.c
 	$(VECHO) "  CC\t$@\n"
 	$(Q)$(CC) -o $@ $(CFLAGS) -c $^
+
+clean:
+	rm -rf main.o main
