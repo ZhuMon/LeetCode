@@ -6,8 +6,6 @@ class Solution:
             return False
         if s == "" and len(p) == 2 and p[1] == "*":
             return True
-        if s == "" and p != ".*":
-            return False
 
         if len(p) == 1:
             if len(s) > 1:
@@ -15,14 +13,14 @@ class Solution:
             if p == '.' and len(s) == 1:
                 return True
 
-        if p[0] == '.' and p[1:2] != '*':
+        if p[0] == '.' and p[1:2] != '*' and s != "":
             return self.recur(s[1:], p[1:])
         if p[:2] == ".*":
             if len(p) == 2:
                 return True
             if len(p) > 2:
                 res = False
-                for i in range(len(s)):
+                for i in range(len(s)+1):
                     res = res or self.recur(s[i:], p[2:])
                 return res
 
@@ -38,9 +36,9 @@ class Solution:
 
             return res
 
-        if s[0] != p[0]:
+        if s[0:1] != p[0:1]:
             return False
-        if s[0] == p[0]:
+        if s[0:1] == p[0:1]:
             return self.recur(s[1:], p[1:])
 
     def isMatch(self, s: str, p: str) -> bool:
